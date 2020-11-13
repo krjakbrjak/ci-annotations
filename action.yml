@@ -1,0 +1,9 @@
+name: 'Annotations'
+description: 'TODO'
+inputs:
+  token:
+    description: 'token'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
