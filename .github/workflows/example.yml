@@ -4,9 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  annotations:
     runs-on: ubuntu-latest
+    name: An example job
     steps:
-      - uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - uses: actions/checkout@v2
+    - name: Hello world action step
+      id: hello
+      uses: ./
+      with:
+        token: '${{secrets.GITHUB_TOKEN}}'

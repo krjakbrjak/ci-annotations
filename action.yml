@@ -1,0 +1,11 @@
+name: 'Annotations'
+description: 'TODO'
+inputs:
+  token:
+    description: 'token'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.token }}
