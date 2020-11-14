@@ -2,6 +2,8 @@ const github = require('@actions/github');
 const core = require('@actions/core');
 
 async function run() {
+    const path = core.getInput('path');
+    console.log(process.env.GEN_OUTPUT, '@@@@@@@@@@@@@');
     const token = core.getInput('token');
     const octokit = github.getOctokit(token);
     try {

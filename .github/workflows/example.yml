@@ -9,8 +9,15 @@ jobs:
     name: An example job
     steps:
     - uses: actions/checkout@v2
+    - name: generate file
+      run:
+        echo "12345" > ./out.gen;
+        VARPATH=`pwd`/out.gen;
+        echo "GEN_OUTPUT=${VARPATH}" >> $GITHUB_ENV;
+
     - name: Hello world action step
       id: hello
       uses: ./
       with:
+        path: ${{steps.generate_file.outputs.gen}}
         token: '${{secrets.GITHUB_TOKEN}}'
