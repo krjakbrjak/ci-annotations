@@ -1,9 +1,13 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
+const fs = require('fs');
 
 async function run() {
     const path = core.getInput('path');
     console.log(process.env.GEN_OUTPUT, '@@@@@@@@@@@@@');
+
+    var contents = fs.readFileSync(process.env.GEN_OUTPUT);
+    console.log('###############', contents.toString('utf8'));
     const token = core.getInput('token');
     const octokit = github.getOctokit(token);
     try {
