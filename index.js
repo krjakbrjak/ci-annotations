@@ -26,7 +26,14 @@ async function run() {
             completed_at: new Date().toISOString(),
             conclusion: "success",
             output: {
-                summary: "summary",
+                summary: `
+# Tests results
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+                `.trim(),
                 title: "title",
                 annotations: [
                     {
