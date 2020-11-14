@@ -1,8 +1,20 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
+const yargs = require('yargs');
 
 async function run() {
-    const token = core.getInput('token');
+    const argv = yargs
+        .option('token', {
+            token: {
+                description: 'token',
+                type: String,
+            }
+        })
+        .help()
+        .alias('help', 'h')
+        .argv
+    const token = argv.token;//core.getInput('token');
+    console.log(token, '!!!!!!!');
     const octokit = github.getOctokit(token);
     try {
         const {
